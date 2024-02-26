@@ -16,8 +16,7 @@ function SearchBar ( { onEnterPressed }) {
     
             navigate(`/search/${input}`);
             setInput("");
-            // Hide dropdown menu on Enter key pressed
-            onEnterPressed();
+
         }       
     };
 
