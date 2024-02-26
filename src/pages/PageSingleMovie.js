@@ -67,6 +67,18 @@ function PageSingleMovie () {
         }
     }, [movieData]);
 
+    // handle cast scrollbar
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    const handleScroll = (event) => {
+        const { scrollLeft } = event.target;
+        if ( scrollLeft > 0 ) {
+            setIsScrolled ( true );
+        } else {
+            setIsScrolled ( false );
+        }
+    };
+
     // Change the arrow svg in slider
     function SliderPrevArrow(props) {
         const { className, onClick } = props;
@@ -210,17 +222,21 @@ function PageSingleMovie () {
                         <div className="cast-list">
                             <img src={`${imageFolderPath}top-cast.png`} alt="Top Cast Icon" />
                             <h2>Top Cast</h2>
-                            <div className="cast-scroll">
-                                { castData.map((castItem) => ( castItem.profile_path && 
-                                    <div className="cast-card" key={castItem.cast_id}>
-                                        <img src={`${IMAGE_URL_BASE}/w185${castItem.profile_path}`} alt={castItem.name} 
-                                             className="cast-image"/>
-                                        <p className="cast-name">{castItem.name}</p>
-                                        <p className="cast-character">{castItem.character}</p>
-                                        <p className="cast-popularity">❤️‍🔥 {castItem.popularity.toFixed(1)}</p>
-                                    </div>
-                                    
-                                ))}
+
+                            <div className={`cast-scroll ${isScrolled ? 'scroll-left-gradient' : ''}`}>
+                                <div onScroll={handleScroll}
+                                    className="cast-card-container">
+                                    { castData.map((castItem) => ( castItem.profile_path && 
+                                        <div className="cast-card" key={castItem.cast_id}>
+                                            <img src={`${IMAGE_URL_BASE}/w185${castItem.profile_path}`} alt={castItem.name} 
+                                                className="cast-image"/>
+                                            <p className="cast-name">{castItem.name}</p>
+                                            <p className="cast-character">{castItem.character}</p>
+                                            <p className="cast-popularity">❤️‍🔥 {castItem.popularity.toFixed(1)}</p>
+                                        </div>
+                                        
+                                    ))}
+                                </div>
                             </div>          
                         </div>
                     )}
