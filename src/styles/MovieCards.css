@@ -1,82 +1,94 @@
 .movies-container {
-    margin: 30px 16px auto;
+    margin: 35px;
+    margin-top: 85px;
 }
 
 .movie-cards {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 30px;
-    justify-content: center;
-}
-
-.empty-watchlist,
-.no-movie-found {
-    font-size: 20px;
-}
-
-.movie-card {
-    width: 185px;
-    position: relative;
-    cursor: pointer;
 }
 
 .movie-card-image {
+    width: 100%;
     border-radius: 15px;
 }
 
-
-/* Hover styles */
-
-.hover-container {
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;    
-    background-color: rgba(0, 0, 0, 0.519);
-}
-
-.card-info {
-    width: 180px;
-    padding: 0 2px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
-}
-
-.vote-average svg {
-    width: 40px;
-}
-
-.card-info h3 {
-    font-size: 21px;
-}
-
-.card-info p {
-    font-size: 15px;
+.movie-card {
+    max-width: 400px;
+    position: relative;
+    margin-bottom: 70px;
+    justify-self: center;
 }
 
 .movie-card .vote-average {
     position: absolute;
-    left: 10px;
-    bottom: 0px;
+    top: -35px;
+    left: -10px;
 }
 
-.watchlist-in-card {
+.vote-average svg {
+    width: 50px;
+}
+
+.hover-container .watchlist-in-card {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    bottom: 45px;
+    right: 0; 
 }
 
-.hover-container:hover {
-    opacity: 1;        
+.hover-container .btn-more-info {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
 }
 
+/* Hover styles */
+/* @media (min-width: 77em) {
 
+    .hover-container {
+        opacity: 0;
+
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 100%;
+        height: 80%;
+        border-radius: 15px;    
+        background-color: rgba(0, 0, 0, 0.764);
+        text-align: center;
+    }
+
+    .hover-container:hover {
+        opacity: 1;       
+        transition: opacity 0.2s ease-in-out;
+ 
+    }
+
+    .movie-card-image {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hover-container h3 {
+        margin: 18px 5px;
+    }
+
+    .hover-container .watchlist-in-card {
+        bottom: 5px;
+        right: 10px; 
+    }
+    
+    .hover-container .btn-more-info {
+        position: absolute;
+        bottom: 75px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+} */

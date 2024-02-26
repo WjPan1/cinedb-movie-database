@@ -29,30 +29,30 @@ const defaultMovieData = {
   }
 
 function MovieCard ({movieData = defaultMovieData}) {
-    const imagePath = `${IMAGE_URL_BASE}/w185${movieData.poster_path}`;
+    const imagePath = `${IMAGE_URL_BASE}/w500${movieData.poster_path}`;
     const navigate = useNavigate();
     
     return (
-        <section className="movie-card"
-                 onClick={() => { navigate(`/movie/${movieData.id}`);}}
-        >
+        <section className="movie-card">
+            <p className="vote-average">
+                <CircularBar voteAverage={movieData.vote_average.toFixed(1)} />
+            </p>
             <img src={imagePath} alt={movieData.title} className="movie-card-image" />
 
             <div className="hover-container">
-                <div className="card-info">
-                    <h3>{movieData.title}</h3>
-                    <p className="release-date">
-                        {formatReleaseDate(movieData.release_date)}
-                    </p>
-                </div>
-
-                <p className="vote-average">
-                    <CircularBar voteAverage={movieData.vote_average.toFixed(1)} />
+                <h3>{movieData.title}</h3>
+                <p className="release-date">
+                    {formatReleaseDate(movieData.release_date)}
                 </p>
+                <WatchlistButton movieData={movieData} className="watchlist-in-card" />
 
-                <WatchlistButton movieData={movieData} 
-                    className="watchlist-in-card" />
+                <button 
+                    onClick={() => navigate(`/movie/${movieData.id}`)} 
+                    className="btn-more-info">
+                    More Info
+                </button>
             </div>
+
             
         </section>
     )
