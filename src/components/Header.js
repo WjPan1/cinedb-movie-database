@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar';
-import { APP_NAME } from '../globals/globalVariables';
 import { ReactComponent as MenuIcon } from '../images/menu-hamburger.svg';
 import '../styles/Header.css';
 import { imageFolderPath } from "../globals/globalVariables";
@@ -9,49 +8,72 @@ import { imageFolderPath } from "../globals/globalVariables";
 function Header() {
 
     const [isActive, setIsActive] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const navbarRef = useRef(null);
+
+    useEffect(() => {
+        // Determine if the screen is at the top
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY;
+            setIsScrolled(scrollPosition > 0); // Determine if the screen is scrolled
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+
+        // Determine if clicked the area outside of the nav-container
+        const handleClickOutsideNavbar = (event) => {
+            if ( navbarRef.current && !navbarRef.current.contains(event.target) ) {
+                setIsActive(false);
+            } else {
+                setIsActive( true )
+            }
+        }
+
+        document.addEventListener('click', handleClickOutsideNavbar)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            document.removeEventListener('click', handleClickOutsideNavbar)
+        };
+
+    }, []);
 
     // Show or Hide dropdown menu after clicked hamburger menu icon
-    function handleClickMenu () {
+    function handleClickMenu (event) {
+        event.stopPropagation(); 
+
         setIsActive(!isActive);
     };
 
     // Hide dropdown menu after clicked links
-    function handleLinkClick () {
-        setIsActive(false);
-    };
+    function handleLinkClick (event) {
+        event.stopPropagation(); 
 
-    // Hide dropdown menu on Enter key pressed
-    function handleSearchEnter () {
         setIsActive(false);
-      };
-    
-    function handleSearchKeyDown (e) {
-        if (e.key === 'Enter') {
-            handleSearchEnter();
-        }
     };
+    
 
     return (
-        <header>
+        <header className={`isScroll ${ isScrolled ? "scrolled" : "" }`}>
             <div className="header-logo">
-                <NavLink to="/">
-                    <img src={`${imageFolderPath}cinedb-logo.png`} alt="Logo" />
-                    <span className='website-name'>{APP_NAME}</span>
-                </NavLink> 
+                <NavLink to="/" className="logo-container"><img src={`${imageFolderPath}cinedb-logo.png`} alt="Logo" /><span className='website-name'>CinDB</span></NavLink> 
                 
             </div>
 
-            <nav className= {`navbar-container ${isActive ? "actived" : ""}`}>
-                <SearchBar  onEnterPressed={handleSearchEnter} 
-                            onKeyDown={handleSearchKeyDown}/>
-                <div className='header-menu'>
-                    <NavLink to="/"  onClick={handleLinkClick}>Home</NavLink>
-                    <NavLink to="/about"  onClick={handleLinkClick}>About</NavLink>
-                    <NavLink to="/watchlist"  onClick={handleLinkClick}>Watchlist</NavLink>
-                </div>
-            </nav>
+            <div className="searchbar-menu-container">
+                <SearchBar />
+
+                <nav ref={navbarRef} className= "navbar-container">
+                    <div className={`header-menu ${isActive ? "actived" : ""}`} >
+                        <NavLink to="/"  onClick={handleLinkClick}>Home</NavLink>
+                        <NavLink to="/about"  onClick={handleLinkClick}>About</NavLink>
+                        <NavLink to="/watchlist"  onClick={handleLinkClick}>Watchlist</NavLink>
+                    </div>
+                </nav>
+            </div>
             
-            <MenuIcon className="hamburger"
+            <MenuIcon className={`hamburger ${isActive ? "actived" : ""}`}
                       onClick={handleClickMenu}/>
         </header>
     );

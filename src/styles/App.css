@@ -52,7 +52,7 @@ body {
     height: 300px;
     object-fit: cover;
     filter: brightness(25%);
-
+    margin-top: 75px;
 }
 
 .watchlist-container {

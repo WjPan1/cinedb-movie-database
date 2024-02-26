@@ -1,7 +1,6 @@
 /* Movie info */
 
 main.single-movie-container {
-    margin-top: 75px;
     width: 100%;
     flex: 1;
 }
