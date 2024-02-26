@@ -24,20 +24,18 @@ header::after {
 }
 
 /* Logo and title */
-.header-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
 
 .header-logo img {
     height: 60px; 
-    display: block;
+    vertical-align: middle;
 }
 
 .website-name {
     font-size: 25px;
     font-weight: bold;
+    margin-left: 10px;
+    vertical-align: middle;
+    color: white;
 }
 
 

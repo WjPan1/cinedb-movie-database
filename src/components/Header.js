@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar';
+import { APP_NAME } from '../globals/globalVariables';
 import { ReactComponent as MenuIcon } from '../images/menu-hamburger.svg';
 import '../styles/Header.css';
 import { imageFolderPath } from "../globals/globalVariables";
@@ -33,12 +34,16 @@ function Header() {
     return (
         <header>
             <div className="header-logo">
-                <NavLink to="/"><img src={`${imageFolderPath}cinedb-logo.png`} alt="Logo" /></NavLink> 
-                <p className='website-name'>CinDB</p>
+                <NavLink to="/">
+                    <img src={`${imageFolderPath}cinedb-logo.png`} alt="Logo" />
+                    <span className='website-name'>{APP_NAME}</span>
+                </NavLink> 
+                
             </div>
 
             <nav className= {`navbar-container ${isActive ? "actived" : ""}`}>
-                <SearchBar  onEnterPressed={handleSearchEnter} onKeyDown={handleSearchKeyDown}/>
+                <SearchBar  onEnterPressed={handleSearchEnter} 
+                            onKeyDown={handleSearchKeyDown}/>
                 <div className='header-menu'>
                     <NavLink to="/"  onClick={handleLinkClick}>Home</NavLink>
                     <NavLink to="/about"  onClick={handleLinkClick}>About</NavLink>

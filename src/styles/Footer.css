@@ -5,17 +5,20 @@ footer {
     margin-top: 50px;
 }
 
-.footer-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Logo and title */
+.footer-logo img {
+    height: 60px; 
+    vertical-align: middle;
 }
 
-.footer-logo span {
-    margin-left: 10px;
+.website-name {
     font-size: 25px;
     font-weight: bold;
+    margin-left: 10px;
+    vertical-align: middle;
+    color: white;
 }
+
 
 footer p {
     margin: 10px auto;
