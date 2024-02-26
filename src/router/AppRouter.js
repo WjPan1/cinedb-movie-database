@@ -14,21 +14,23 @@ import SearchResult from "../pages/SearchResult";
 
 function AppRouter () {
    return (
-      <BrowserRouter basename="cindb">
+      <BrowserRouter basename="cinedb">
          <GlobalProvider>
+            <div className="site-container">
 
-            <Header />
+               <Header />
+               
+               <Routes>
+                  <Route path="/*" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/watchlist" element={<Watchlist />} />
+                  <Route path="/movie/:id" element={<PageSingleMovie />} />
+                  <Route path="/search/:query" element={<SearchResult />} />
+               </Routes>
 
-            <Routes>
-               <Route path="/*" element={<Home />} />
-               <Route path="/about" element={<About />} />
-               <Route path="/watchlist" element={<Watchlist />} />
-               <Route path="/movie/:id" element={<PageSingleMovie />} />
-               <Route path="/search/:query" element={<SearchResult />} />
-            </Routes>
-
-            <Footer />
-            
+               <Footer />
+                     
+            </div>
          </GlobalProvider>
       </BrowserRouter>
    )

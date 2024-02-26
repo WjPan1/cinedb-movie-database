@@ -9,14 +9,13 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-#root {
+.site-container {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 .main-container,
-.about-container,
 .watchlist-container {
     margin-top: 150px;
     flex: 1;
@@ -52,7 +51,7 @@ body {
     height: 300px;
     object-fit: cover;
     filter: brightness(25%);
-    margin-top: 75px;
+    margin-top: 95px;
 }
 
 .watchlist-container {
@@ -62,7 +61,7 @@ body {
 
 .watchlist-title {
     position: absolute;
-    top: 150px;
+    top: 170px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 45px;

@@ -4,8 +4,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    position: relative;
+    padding: 20px;
+    /* position: relative; */
     position: fixed;
     left: 0;
     right: 0;
@@ -140,18 +140,13 @@ header.scrolled::after {
 }
 
 
-
-
 .searchbar-menu-container {
     display: flex;
 }
 
-/* 右侧栏 menu */
+/* right menu bar */
 
 @media (max-width: 52em) {
-    header {
-        padding: 10px;
-    }
 
     .header-menu {
         padding-top: 100px;
@@ -165,7 +160,6 @@ header.scrolled::after {
         height: 100vh;
         z-index: 10;
         background-color: #1d0000;
-        transition: 0.5s ease-in-out; /* 添加背景颜色的过渡效果 */
     }
 
     .header-menu::after {
@@ -192,7 +186,6 @@ header.scrolled::after {
         fill: white;
         width: 35px;
         cursor: pointer;
-        transition: 0.2s ease-in-out;
         position: absolute;
         top: 50%;
         right: 15px;
@@ -200,7 +193,8 @@ header.scrolled::after {
         z-index: 20;
     }
 
-    .hamburger.actived {
+    .hamburger.actived {        
+        transition: 0.2s ease-in-out;
         fill: #db1623bc;
     }
 

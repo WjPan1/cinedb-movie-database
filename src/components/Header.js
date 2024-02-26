@@ -2,8 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import { ReactComponent as MenuIcon } from '../images/menu-hamburger.svg';
-import '../styles/Header.css';
+import { APP_NAME } from '../globals/globalVariables';
 import { imageFolderPath } from "../globals/globalVariables";
+
+import '../styles/Header.css';
 
 function Header() {
 
@@ -57,7 +59,7 @@ function Header() {
     return (
         <header className={`isScroll ${ isScrolled ? "scrolled" : "" }`}>
             <div className="header-logo">
-                <NavLink to="/" className="logo-container"><img src={`${imageFolderPath}cinedb-logo.png`} alt="Logo" /><span className='website-name'>CinDB</span></NavLink> 
+                <NavLink to="/" className="logo-container"><img src={`${imageFolderPath}cinedb-logo.png`} alt="Logo" /><span className='website-name'>{APP_NAME}</span></NavLink> 
                 
             </div>
 
@@ -66,15 +68,18 @@ function Header() {
 
                 <nav ref={navbarRef} className= "navbar-container">
                     <div className={`header-menu ${isActive ? "actived" : ""}`} >
-                        <NavLink to="/"  onClick={handleLinkClick}>Home</NavLink>
-                        <NavLink to="/about"  onClick={handleLinkClick}>About</NavLink>
-                        <NavLink to="/watchlist"  onClick={handleLinkClick}>Watchlist</NavLink>
+                        <NavLink to="/" onClick={handleLinkClick}>Home</NavLink>
+                        <NavLink to="/about" onClick={handleLinkClick}>About</NavLink>
+                        <NavLink to="/watchlist" onClick={handleLinkClick}>Watchlist</NavLink>
                     </div>
                 </nav>
             </div>
             
             <MenuIcon className={`hamburger ${isActive ? "actived" : ""}`}
                       onClick={handleClickMenu}/>
+
+
+
         </header>
     );
 }

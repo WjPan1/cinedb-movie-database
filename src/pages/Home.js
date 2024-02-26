@@ -13,10 +13,10 @@ function Home () {
     }, [])
 
     return (
-    <main className="home-main-container">
-        <Banner />
-        <CategoryRouter />
-    </main>
+        <main className="home-main-container">
+            <Banner />
+            <CategoryRouter />
+        </main>
     )
 }
 

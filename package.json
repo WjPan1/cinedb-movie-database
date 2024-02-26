@@ -1,6 +1,6 @@
 {
   "name": "movie-cine-db",
-  "homepage": "cindb",
+  "homepage": "cinedb",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
