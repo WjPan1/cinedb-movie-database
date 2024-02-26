@@ -51,6 +51,10 @@
     text-align: center;
 }
 
+.vote-average svg {
+    width: 40px;
+}
+
 .card-info h3 {
     font-size: 21px;
 }

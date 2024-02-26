@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { IMAGE_URL_BASE } from "../utilities/api";
 import WatchlistButton from "./WatchlistButton";
 import { formatReleaseDate } from "../utilities/toolbelt";
+import CircularBar from "./CircularBar";
 
 import '../styles/MovieCards.css';
 
@@ -45,7 +46,9 @@ function MovieCard ({movieData = defaultMovieData}) {
                     </p>
                 </div>
 
-                <p className="vote-average">&#11088; {movieData.vote_average.toFixed(1)}</p>
+                <p className="vote-average">
+                    <CircularBar voteAverage={movieData.vote_average.toFixed(1)} />
+                </p>
 
                 <WatchlistButton movieData={movieData} 
                     className="watchlist-in-card" />

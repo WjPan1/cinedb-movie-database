@@ -6,6 +6,8 @@ import { IMAGE_URL_BASE } from '../utilities/api';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import "../styles/Banner.css";
+import CircularBar from './CircularBar';
+
 
 const Banner = () => {
   const [nowPlaying, setNowPlaying] = useState([]);
@@ -36,25 +38,28 @@ const Banner = () => {
 
   return (
     <div className="carousel-container">
-      <Slider {...settings}>
-        {nowPlaying.map((movieData, index) => (
-          <div key={movieData.id} className={`carousel-item ${index === activeSlide ? 'active' : ''}`}>
-            <img src={`${IMAGE_URL_BASE}/w1280${movieData.backdrop_path}`} alt={movieData.title} className="carousel-image" />
-            <div className="carousel-intro">
-              <p className="movie-subtitle">
-                Now Playing <span className="vote-average"> &#11088; {movieData.vote_average.toFixed(1)}</span>
-              </p>
-              <h1 className="carousel-title">{movieData.title}</h1>
-              <p className="overview">{movieData.overview}</p>
-              <button 
-                onClick={() => navigate(`/movie/${movieData.id}`)} 
-                className="btn-more-info">
-                More Info
-              </button>
-            </div>
-          </div>
-        ))}
-      </Slider>
+        <Slider {...settings}>
+            {nowPlaying.map((movieData, index) => (
+                <div key={movieData.id} className={`carousel-item ${index === activeSlide ? 'active' : ''}`}>
+                    <img src={`${IMAGE_URL_BASE}/w1280${movieData.backdrop_path}`} alt={movieData.title} className="carousel-image" />
+                    <div className="carousel-intro">
+                        <p className="movie-subtitle">
+                            Now Playing 
+                            <span className="vote-average">
+                            <CircularBar voteAverage={movieData.vote_average.toFixed(1)} />
+                            </span>
+                        </p>
+                        <h1 className="carousel-title">{movieData.title}</h1>
+                        <p className="overview">{movieData.overview}</p>
+                        <button 
+                            onClick={() => navigate(`/movie/${movieData.id}`)} 
+                            className="btn-more-info">
+                            More Info
+                        </button>
+                    </div>
+                </div>
+            ))}
+        </Slider>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import { IMAGE_URL_BASE } from "../utilities/api";
 import WatchlistButton from "../components/WatchlistButton";
 import Slider from "react-slick";
 import { imageFolderPath } from "../globals/globalVariables";
+import CircularBar from "../components/CircularBar";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -139,7 +140,9 @@ function PageSingleMovie () {
                         <div className="intro-right">
                             <h1 className="movie-title">{movieData.title}</h1>
                             <p className="release-date">{formatReleaseDate(movieData.release_date)} 
-                                <span className="vote-average"> &#11088; {movieData.vote_average.toFixed(1)}</span>
+                                <span className="vote-average">
+                                    <CircularBar voteAverage={movieData.vote_average.toFixed(1)} />
+                                </span>
                                 <span className="runtime">{`${convertRuntime(movieData.runtime)}`}</span>
                             </p>
                             
