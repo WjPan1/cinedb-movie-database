@@ -1,70 +1,106 @@
 .movie-list {
-    max-width: 1400px;
-    margin: 50px auto 0;
+    max-width: 1600px;
+    margin: 60px auto 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 0;
-    gap: 20px;
+    row-gap: 35px;
 }
 
 .movie-link {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    padding: 5px 20px;
-    border-radius: 30;
+    width: 40%;
     position: relative;
-
+    display: flex; 
+    justify-content: center; 
 }
 
 .movie-link a {
-    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: white;
     text-decoration: none;
+    gap: 10px;
 }
 
 .movie-link img {
-    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
 }
 
-.text {
-    margin-left: 15px;
-    vertical-align: middle;
-}
-
-@media (min-width: 36em) {
-    .movie-link {
-        width: 35%;
-    }
-}
-@media (min-width: 80em) {
-    .movie-link  {
-        width: 15%;
-    }
-}
 
 /* Movie lists hover and active styles */
 .movie-link a::before {
     content: '';
     position: absolute;
     left: 50%;
-    bottom: -8px;
+    bottom: -15px;
     transform: translateX(-50%);
-    width: 185px;
+    width: 95px;
     height: 5px;
-    background-color: #DB1623;
+    background-color: #5f575865;
     border-radius: 50px;
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-
+    transition: background-color 0.2s ease-in-out;
 }
 
 .movie-link a.active::before {
-    opacity: 1;
+    background-color: #DB1623;
 }
 
+@media (min-width: 40em) {
+    .movie-list {
+        gap: 35px;
+    }
 
-.movie-link a:hover::before {
-    opacity: 0.5;
+    .movie-link {
+        width: 35%;
+    }
+
+    .movie-link a {
+        display: block;
+        font-size: 1.5rem;
+    }
+
+    .movie-link img {
+        width: 40px;
+        height: 40px;
+        vertical-align: middle;
+    }
+
+    .text {
+        margin-left: 15px;
+    }
+
+    .movie-link a::before {
+        width: 195px;
+    }
+}
+
+@media (min-width: 60em) {
+    .movie-link {
+        width: 20%;
+    }
+
+    .movie-link a::before {
+        width: 195px;
+    }
+}
+
+@media (min-width: 80em) {
+
+    .movie-list {
+        gap: 45px;
+    }
+
+    .movie-link a {
+        font-size: 2rem;
+    }
+
+    .movie-link a::before {
+        width: 235px;
+
+    }
+
 }

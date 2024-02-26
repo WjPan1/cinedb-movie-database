@@ -10,6 +10,7 @@ function Home () {
 
     useEffect( () => {
         document.title = `${APP_NAME} - Home`;
+        
     }, [])
 
     return (

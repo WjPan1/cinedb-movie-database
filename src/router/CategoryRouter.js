@@ -1,4 +1,4 @@
-import { NavLink, Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { imageFolderPath } from "../globals/globalVariables";
 import { getNowPlayingMovies, getPopularMovies, getTopRated, getUpComing } from "../utilities/api";
@@ -11,6 +11,7 @@ function CategoryRouter () {
     const [nowPlaying, setNowPlaying] = useState([]);
     const [topRated, setTopRated] =useState([]);
     const [upComing, setUpComing] = useState([]);
+    const location = useLocation();
 
 
     const fetchPopular = () => {
@@ -65,7 +66,7 @@ function CategoryRouter () {
             <div className="movie-list-container">
                 <ul className="movie-list">
                     <li className="movie-link">
-                        <NavLink to="/popular" >
+                        <NavLink to="/popular" className={location.pathname === '/' ? 'active' : ''}>
                             <img src={`${imageFolderPath}popular.png`} alt="Popular Icon" />
                             <span className="text">Popular</span>
                         </NavLink>
