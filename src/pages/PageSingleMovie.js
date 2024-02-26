@@ -127,7 +127,7 @@ function PageSingleMovie () {
     return (
         <main className="single-movie-container">
             {movieData && (
-                <div>
+                <div className="movie-details">
                     {/* Movie info */}
 
                     <div key={movieData.id} className="intro-container">
@@ -139,13 +139,16 @@ function PageSingleMovie () {
 
                         <div className="intro-right">
                             <h1 className="movie-title">{movieData.title}</h1>
-                            <p className="release-date">{formatReleaseDate(movieData.release_date)} 
+                            <div className="detail-container">
+                                <span className="release-date">{formatReleaseDate(movieData.release_date)} 
+                                </span>
                                 <span className="vote-average">
                                     <CircularBar voteAverage={movieData.vote_average.toFixed(1)} />
                                 </span>
                                 <span className="runtime">{`${convertRuntime(movieData.runtime)}`}</span>
-                            </p>
-                            
+                                <span className="watchlist-botton"><WatchlistButton movieData={movieData} /></span>
+                            </div>
+
                             <ul className="genre-list">
                                 {movieData.genres.map( (genre) => 
                                     <li key={genre.id} className="genre">{genre.name}</li>
@@ -153,7 +156,6 @@ function PageSingleMovie () {
                                 
                             </ul>
                                 
-                            <WatchlistButton movieData={movieData} />
                             <p className="tagline">{movieData.tagline}</p>
                         </div>
                     </div>
