@@ -1,0 +1,11 @@
+.watchlist {
+    width: 25px;
+    cursor: pointer;
+}
+.watchlist path {
+    fill: rgba(255, 255, 255, 0.715);
+}
+
+.watchlist.inWatchlist path{
+    fill: rgb(208, 29, 29);
+}

@@ -1,0 +1,33 @@
+footer {
+    padding-top: 25px;
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+}
+
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo span {
+    margin-left: 10px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+footer p {
+    margin: 10px auto;
+}
+
+/* The boundary on the top of the footer */
+footer::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to top, #0C0000, #641c1c56);
+}

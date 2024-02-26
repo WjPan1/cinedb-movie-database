@@ -1,0 +1,212 @@
+header {
+    background-color: #0C0000;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: relative;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+}
+
+/* The boundary on the bottom of the header */
+header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to bottom, #0C0000, #641c1c6c);
+
+}
+
+/* Logo and title */
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo img {
+    height: 60px; 
+    display: block;
+}
+
+.website-name {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+/* Search bar */
+
+.search-container {
+    position: relative;
+}
+
+.text-box {
+    background-color: rgba(219, 22, 35, 0.012);
+    height: 30px; 
+    border: 3px solid #cccccc53;
+    border-radius: 20px; 
+    padding: 5px 15px; 
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 0 8px 0 rgba(133, 132, 132, 0.2); 
+
+}
+
+.search-icon {
+    fill: rgba(255, 255, 255, 0.691);
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+/* Navbar */
+/* ul {
+    list-style-type: none;
+} */
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+}
+
+.header-menu {
+    font-size: 20px;
+    font-weight: bold;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.header-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    margin: 0 20px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.header-menu a:hover {
+    opacity: 1;
+}
+
+.header-menu a.active {
+    opacity: 1;
+}
+
+
+/* Red dot style */
+.header-menu a::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -12px;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: #DB1623;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Show red dot on active */
+.header-menu a.active::before {
+    opacity: 1;
+}
+
+/* Show red dot on hover */
+.header-menu a:hover::before {
+    opacity: 0.5;
+}
+
+/* Hamburger Menu Icon */
+
+.hamburger {
+    fill: white;
+    width: 60px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+}
+
+.hamburger:hover {
+    fill: #db1623bc;
+}
+
+/* dropdown menu */
+
+.header {
+    position: relative;
+}
+
+@media (max-width: 50em) {
+    .navbar-container {
+        display: none;
+    }
+
+    .navbar-container.actived {
+        position: absolute;
+        top: 98.75px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        z-index: 10;
+        background-color: #0C0000;
+        padding-bottom: 50px;
+ 
+    }
+
+    .navbar-container.actived::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 15px;
+        border-bottom-left-radius: 35px;
+        border-bottom-right-radius: 35px;   
+        background: linear-gradient(to bottom, #0C0000, #641c1c56);
+    }
+
+    .search-container {
+        margin-top: 70px;
+    }
+
+    .header-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        margin: 30px;
+    }
+}
+
+@media (min-width: 50em) {
+
+    header .hamburger {
+        display: none;
+    }
+
+    .search-container,
+    .header-menu {
+        position: relative;
+        top: 0;
+        display: block;
+    }
+
+}
+
+
+

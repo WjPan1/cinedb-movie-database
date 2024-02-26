@@ -1,0 +1,78 @@
+.movies-container {
+    margin: 30px 16px auto;
+}
+
+.movie-cards {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.empty-watchlist,
+.no-movie-found {
+    font-size: 20px;
+}
+
+.movie-card {
+    width: 185px;
+    position: relative;
+    cursor: pointer;
+}
+
+.movie-card-image {
+    border-radius: 15px;
+}
+
+
+/* Hover styles */
+
+.hover-container {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;    
+    background-color: rgba(0, 0, 0, 0.519);
+}
+
+.card-info {
+    width: 180px;
+    padding: 0 2px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.card-info h3 {
+    font-size: 21px;
+}
+
+.card-info p {
+    font-size: 15px;
+}
+
+.movie-card .vote-average {
+    position: absolute;
+    left: 10px;
+    bottom: 0px;
+}
+
+.watchlist-in-card {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.hover-container:hover {
+    opacity: 1;        
+}
+
+

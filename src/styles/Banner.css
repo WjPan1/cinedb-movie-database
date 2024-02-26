@@ -1,0 +1,106 @@
+.carousel-container {
+    position: relative;
+}
+
+.slick-active {
+    z-index: 2; 
+}
+
+.carousel-image {
+    width: 100%;
+    max-height: 800px;
+    min-height: 400px;
+    object-fit: cover;
+    filter: brightness(60%);  
+}
+
+.carousel-intro {
+    margin-left: clamp(10px, 5vw, 300px);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90vw;
+}
+
+.carousel-intro .vote-average {
+    padding-left: 1rem;
+}
+
+.movie-subtitle {
+    font-size: 0.9rem;
+}
+.release-date {
+    font-size: 0.9rem;
+}
+
+.carousel-title {
+    font-size: 27px;
+    width: 90%;
+}
+
+.overview {
+    font-size: clamp(16px, 1.5vw, 18px);
+    display: none;
+    line-height: 24px;
+}
+
+.btn-more-info {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    padding: 8px 20px 9px;
+    border-radius: 30px;
+    background-color: red;
+    cursor: pointer;
+}
+
+
+@media (min-width: 50em) {
+    .carousel-intro {
+        width: 600px;
+    }
+
+    .carousel-title {
+        font-size: clamp(32px, 3vw, 100px);
+    }
+
+    .overview {
+        display: block;
+    }
+}
+
+/* Stylig slider dots  */
+ul.slick-dots {
+    position: absolute;
+    bottom: 30px;
+}
+
+.slick-dots li {
+    margin-right: 20px;
+}
+
+.slick-dots li button::before {
+    font-size: clamp(16px, 4vw, 24px);
+    color: white;
+}
+
+.slick-dots li.slick-active button::before {
+    color: rgba(255, 0, 0, 0.911);
+}
+
+.carousel-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #0C0000);
+
+}
