@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { APP_NAME } from '../globals/globalVariables';
 
 import Banner from "../components/Banner";
-import CategoryRouter from "../router/SectionRouter";
+import CategoryRouter from "../router/CategoryRouter";
 
 import '../styles/Home.css';
 
