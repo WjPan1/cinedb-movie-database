@@ -5,7 +5,7 @@ import { ReactComponent as Magnifier } from "../images/magnifier.svg";
 import '../styles/Header.css';
 
 
-function SearchBar ( { onEnterPressed }) {
+function SearchBar () {
     const [input, setInput] = useState("");
     const navigate = useNavigate();
     

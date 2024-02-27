@@ -12,7 +12,6 @@
     column-gap: 35px;
 }
 
-
 .movie-card {
     position: relative;
     max-width: 265px;
@@ -20,7 +19,6 @@
 
     /* add a placeholder for each movie card until the image finishes loading */
     width: 100%;
-    background-color: #00000000;
 }
 
 .movie-card-image {

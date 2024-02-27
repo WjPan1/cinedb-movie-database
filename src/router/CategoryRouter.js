@@ -30,40 +30,52 @@ function CategoryRouter () {
             setTopRated(topRatedData.results);
             setUpComing(upComingData.results);
         }).catch(error => {
-            console.error('Fetching movies failed:', error);
+            alert('Fetching movies failed');
         });
     }
+
+    const [containerOpacity, setContainerOpacity] = useState(false);
+
+    const handleNavLinkClick = () => {
+        setContainerOpacity(true);
+
+        setTimeout(() => {
+            setContainerOpacity(false);
+        }, 10);
+    };
 
     return (
         <div className="movie-category-container">
             <div className="movie-list-container">
                 <ul className="movie-list">
                     <li className="movie-link">
-                        <NavLink to="/popular" className={location.pathname === '/' ? 'active' : ''}>
+                        <NavLink to="/popular"  onClick={handleNavLinkClick} className={location.pathname === '/' ? 'active' : ''}>
                             <img src={`${imageFolderPath}popular.png`} alt="Popular Icon" />
                             <span className="text">Popular</span>
                         </NavLink>
                     </li>
                     <li className="movie-link">
-                        <NavLink to="/top-rated" >
+                        <NavLink to="/top-rated"  onClick={handleNavLinkClick}>
                             <img src={`${imageFolderPath}top-rated.png`} alt="Top Rated Icon" /> 
                             <span className="text">Top Rated</span>
                         </NavLink>
                     </li>
                     <li className="movie-link">
-                        <NavLink to="/upcoming" >
+                        <NavLink to="/upcoming"  onClick={handleNavLinkClick}>
                             <img src={`${imageFolderPath}upcoming.png`} alt="Upcoming Icon" /> 
                             <span className="text">Upcoming</span>
                         </NavLink>
                     </li>
                     <li className="movie-link">
-                        <NavLink to="/now-playing" >
+                        <NavLink to="/now-playing"  onClick={handleNavLinkClick}>
                             <img src={`${imageFolderPath}now-playing.png`} alt="Now Playing Icon" /> 
                             <span className="text">Now Playing</span>
                         </NavLink>
                     </li>
                 </ul>
             </div>
+
+            <div className={`container ${containerOpacity ? "opacity" : "no-opacity" }`}>
 
             <Routes>
                 <Route index element={<MoviesContainer moviesData={popularMovies} />} />
@@ -73,6 +85,7 @@ function CategoryRouter () {
                 <Route path="/now-playing" element={<MoviesContainer moviesData={nowPlaying} />} />
 
             </Routes>
+            </div>
         </div>
     )
 }

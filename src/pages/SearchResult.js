@@ -10,6 +10,7 @@ import '../styles/App.css';
 function SearchResult () {
     const [ outputResult, setOutputResult ] = useState([]);
     const { query } = useParams();
+    const [containerOpacity, setContainerOpacity] = useState(true);
 
 
     useEffect(() => {
@@ -24,14 +25,27 @@ function SearchResult () {
             alert(error);
             });
         }
+
+        setContainerOpacity(true);
+
+        setTimeout(() => {
+            setContainerOpacity(false);
+        }, 1000);
+
     }, [query]);
+
+
 
     return (
         <main  className="main-container">
             <h1 className="search-heading">Search Results for: {query}</h1>
+
+            <div className={`search-result ${containerOpacity ? 'opacity' : 'no-opacity'}`}>
+
             {outputResult.length === 0 ? <p className="no-movie-found"><span className="cry-emoji">😭</span>No movies found.</p> : 
                 <MoviesContainer  moviesData={outputResult} />
             }
+            </div>
         </main>
     )
 }

@@ -217,7 +217,7 @@ main.single-movie-container {
 }
 
 .backdrops-container .slick-list {
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .slick-slide {
