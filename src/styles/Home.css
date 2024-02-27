@@ -54,6 +54,28 @@
     background-color: #DB1623;
 }
 
+
+/* spinner */
+.spinner.loading {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.spinner.loaded {
+    display: none;
+}
+
+.loading.not-finish {
+    opacity: 0;
+}
+
+.loading.finished {
+    transition: opacity 0.4s ease-in;
+    opacity: 1;
+}
+
 @media (min-width: 40em) {
     .movie-list {
         gap: 35px;
