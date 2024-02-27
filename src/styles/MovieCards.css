@@ -92,3 +92,26 @@
     }
 
 } */
+
+
+/* wathchlist styles */
+.empty-watchlist,
+.no-movie-found {
+    font-size: clamp(16px, 4vw, 24px);
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.no-movie-found {
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.cry-emoji {
+    font-size: 150px;
+    margin-bottom: 25px;
+
+}
