@@ -1,3 +1,7 @@
+.home-main-container {
+    flex: 1;
+}
+
 .movie-list {
     max-width: 1600px;
     margin: 60px auto 0;

@@ -29,8 +29,9 @@ function SearchResult () {
     return (
         <main  className="main-container">
             <h1 className="search-heading">Search Results for: {query}</h1>
-            <MoviesContainer  moviesData={outputResult} />
-                    
+            {outputResult.length === 0 ? <p className="no-movie-found"><span className="cry-emoji">😭</span>No movies found.</p> : 
+                <MoviesContainer  moviesData={outputResult} />
+            }
         </main>
     )
 }

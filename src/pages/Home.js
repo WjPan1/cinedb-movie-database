@@ -10,14 +10,13 @@ function Home () {
 
     useEffect( () => {
         document.title = `${APP_NAME} - Home`;
-        
     }, [])
 
     return (
-        <main className="home-main-container">
-            <Banner />
-            <CategoryRouter />
-        </main>
+    <main className="home-main-container">
+        <Banner />
+        <CategoryRouter />
+    </main>
     )
 }
 

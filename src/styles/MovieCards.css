@@ -95,8 +95,7 @@
 
 
 /* wathchlist styles */
-.empty-watchlist,
-.no-movie-found {
+.empty-watchlist {
     font-size: clamp(16px, 4vw, 24px);
     grid-column: 1 / -1;
     justify-self: center;
@@ -112,6 +111,6 @@
 
 .cry-emoji {
     font-size: 150px;
-    margin-bottom: 25px;
+    margin: 25px auto;
 
 }
