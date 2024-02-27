@@ -17,11 +17,21 @@ const Banner = () => {
 
   useEffect(() => {
     getNowPlayingMovies().then((data) => {
-      setNowPlaying(data.results.slice(0, 5));
+        // Randomize the order of movies
+        const randomizedMovies = data.results.sort(() => Math.floor(Math.random() * data.results.length) - Math.floor(Math.random() * data.results.length));
+        
+        // Select the first 5 movies
+        const randomNowPlaying = randomizedMovies.slice(0, 5);
+
+        setNowPlaying(randomNowPlaying);
+        console.log("data.results"); // 输出随机排序后的电影数组
+        
+        console.log(data.results); // 输出随机排序后的电影数组
     }).catch((error) => {
-      console.error('Fetching now playing movies failed:', error);
+        console.error('Fetching now playing movies failed:', error);
     });
-  }, []);
+}, []);
+
 
   const settings = {
     dots: true,

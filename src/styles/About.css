@@ -96,10 +96,9 @@
     }
 
     .content-container p {
-        width: 80%;
         align-self: center;
-        margin: auto;
         line-height: 32px;
+        font-size: 20px;
     } 
 
 }
