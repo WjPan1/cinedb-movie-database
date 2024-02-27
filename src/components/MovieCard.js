@@ -29,7 +29,7 @@ const defaultMovieData = {
   }
 
 function MovieCard ({movieData = defaultMovieData}) {
-    const imagePath = `${IMAGE_URL_BASE}/w500${movieData.poster_path}`;
+    const imagePath = `${IMAGE_URL_BASE}/w400${movieData.poster_path}`;
     const navigate = useNavigate();
     
     return (
@@ -49,7 +49,7 @@ function MovieCard ({movieData = defaultMovieData}) {
 
                 <button 
                     onClick={() => navigate(`/movie/${movieData.id}`)} 
-                    className="btn-more-info">
+                    className="more-info">
                     More Info
                 </button>
             </div>

@@ -14,52 +14,26 @@ function CategoryRouter () {
     const location = useLocation();
 
 
-    const fetchPopular = () => {
-        getPopularMovies()
-        .then((data) => {
-            setPopularMovies(data.results);
-        })
-        .catch((error) => {
-            alert(error);
-        });
-    }
-
-    const fetchNowPlaying = () => {
-        getNowPlayingMovies()
-        .then((data) => {
-            setNowPlaying(data.results);
-        })
-        .catch((error) => {
-            alert(error);
-        });
-    }
-
-    const fetchTopRated = () => {
-        getTopRated()
-        .then((data) => {
-            setTopRated(data.results);
-        })
-        .catch((error) => {
-            alert(error);
-        });
-    }
-
-    const fetchUpcoming = () => {
-        getUpComing()
-        .then((data) => {
-            setUpComing(data.results);
-        })
-        .catch((error) => {
-            alert(error);
-        })
-    }
-    
     useEffect(() => {
-        fetchPopular();
-        fetchNowPlaying();
-        fetchTopRated();
-        fetchUpcoming();
-    },[]);
+        fetchAllMovies();
+    }, []);
+
+    const fetchAllMovies = () => {
+        // 获取所有电影数据
+        Promise.all([
+            getPopularMovies(),
+            getNowPlayingMovies(),
+            getTopRated(),
+            getUpComing()
+        ]).then(([popularData, nowPlayingData, topRatedData, upComingData]) => {
+            setPopularMovies(popularData.results);
+            setNowPlaying(nowPlayingData.results);
+            setTopRated(topRatedData.results);
+            setUpComing(upComingData.results);
+        }).catch(error => {
+            console.error('Fetching movies failed:', error);
+        });
+    }
 
     return (
         <div className="movie-category-container">
@@ -93,11 +67,11 @@ function CategoryRouter () {
             </div>
 
             <Routes>
-            <Route index element={<MoviesContainer moviesData={popularMovies} />} />
-            <Route path="/popular" element={<MoviesContainer moviesData={popularMovies} />} />
-            <Route path="/top-rated" element={<MoviesContainer moviesData={topRated}/>} />
-            <Route path="/upcoming" element={<MoviesContainer moviesData={upComing} />} />
-            <Route path="/now-playing" element={<MoviesContainer moviesData={nowPlaying} />} />
+                <Route index element={<MoviesContainer moviesData={popularMovies} />} />
+                <Route path="/popular" element={<MoviesContainer moviesData={popularMovies} />} />
+                <Route path="/top-rated" element={<MoviesContainer moviesData={topRated}/>} />
+                <Route path="/upcoming" element={<MoviesContainer moviesData={upComing} />} />
+                <Route path="/now-playing" element={<MoviesContainer moviesData={nowPlaying} />} />
 
             </Routes>
         </div>

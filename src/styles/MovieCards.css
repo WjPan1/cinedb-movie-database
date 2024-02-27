@@ -7,15 +7,23 @@
     max-width: 1400px;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
     row-gap: 70px;
-    column-gap: 25px;
+    column-gap: 35px;
 }
 
 
 .movie-card {
     position: relative;
+    max-width: 265px;
+    justify-self: center;
+
+    /* add a placeholder for each movie card until the image finishes loading */
+    width: 100%;
+    background-color: #00000000;
 }
+
+
 
 .movie-card-image {
     width: 100%;
@@ -29,6 +37,7 @@
     position: absolute;
     top: -35px;
     left: -10px;
+    z-index: 100;
 }
 
 .vote-average svg {
@@ -41,42 +50,43 @@
     right: 0; 
 }
 
-.hover-container .btn-more-info {
+.hover-container .more-info {
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 8px 20px 9px;
+    margin-top: 15px;
+    border-radius: 30px;
+    background-color: red;
+    cursor: pointer;
     display: block; 
     margin: 20px auto 0 auto; 
 }
 
+
 /* Hover styles */
-/* @media (min-width: 77em) {
+@media (min-width: 70em) {
 
     .hover-container {
-        opacity: 0;
-
         position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0.826);
+        top: 0;
+        left: 0;
         width: 100%;
-        height: 80%;
+        height: 100%;
         border-radius: 15px;    
-        background-color: rgba(0, 0, 0, 0.764);
         text-align: center;
     }
 
     .hover-container:hover {
         opacity: 1;       
-        transition: opacity 0.2s ease-in-out;
- 
-    }
-
-    .movie-card-image {
-        height: 100%;
-        object-fit: cover;
+        transition: opacity 0.4s ease-in-out;
     }
 
     .hover-container h3 {
         margin: 18px 5px;
+        margin-top: 80px;
     }
 
     .hover-container .watchlist-in-card {
@@ -84,14 +94,14 @@
         right: 10px; 
     }
     
-    .hover-container .btn-more-info {
+    .hover-container .more-info {
         position: absolute;
-        bottom: 75px;
+        bottom: 55px;
         left: 50%;
         transform: translateX(-50%);
     }
 
-} */
+}
 
 
 /* wathchlist styles */
@@ -101,12 +111,13 @@
     justify-self: center;
 }
 
+
+/* search result style */
 .no-movie-found {
     font-size: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .cry-emoji {
