@@ -23,9 +23,8 @@
     background-color: #00000000;
 }
 
-
-
 .movie-card-image {
+    display: block;
     width: 100%;
     aspect-ratio: 4 / 6;
     object-fit: cover;
@@ -44,13 +43,13 @@
     width: 50px;
 }
 
-.hover-container .watchlist-in-card {
+.under-img-container .watchlist-in-card {
     position: absolute;
     bottom: 45px;
     right: 0; 
 }
 
-.hover-container .more-info {
+.more-info {
     color: white;
     font-weight: bold;
     border: none;
@@ -63,11 +62,20 @@
     margin: 20px auto 0 auto; 
 }
 
+.hover-container {
+    display: none;
+}
+
 
 /* Hover styles */
 @media (min-width: 70em) {
 
+    .under-img-container {
+        display: none;
+    }
+
     .hover-container {
+        display: block;
         position: absolute;
         opacity: 0;
         background-color: rgba(0, 0, 0, 0.826);
@@ -77,11 +85,19 @@
         height: 100%;
         border-radius: 15px;    
         text-align: center;
+        transition: opacity 0.2s ease-in-out;
     }
 
-    .hover-container:hover {
-        opacity: 1;       
-        transition: opacity 0.4s ease-in-out;
+    .movie-card:hover .hover-container {
+        opacity: 1;     
+    }
+
+    .movie-card {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .movie-card:hover {
+        transform: scale(1.07); 
     }
 
     .hover-container h3 {
@@ -90,6 +106,7 @@
     }
 
     .hover-container .watchlist-in-card {
+        position: absolute;
         bottom: 5px;
         right: 10px; 
     }

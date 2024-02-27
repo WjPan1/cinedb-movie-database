@@ -19,7 +19,6 @@ function CategoryRouter () {
     }, []);
 
     const fetchAllMovies = () => {
-        // 获取所有电影数据
         Promise.all([
             getPopularMovies(),
             getNowPlayingMovies(),

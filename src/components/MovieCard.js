@@ -54,6 +54,20 @@ function MovieCard ({movieData = defaultMovieData}) {
                 </button>
             </div>
 
+            <div className="under-img-container">
+                <h3>{movieData.title}</h3>
+                <p className="release-date">
+                    {formatReleaseDate(movieData.release_date)}
+                </p>
+                <WatchlistButton movieData={movieData} className="watchlist-in-card" />
+
+                <button 
+                    onClick={() => navigate(`/movie/${movieData.id}`)} 
+                    className="more-info">
+                    More Info
+                </button>
+            </div>
+
             
         </section>
     )
