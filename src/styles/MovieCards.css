@@ -8,20 +8,22 @@
     margin: auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 30px;
+    row-gap: 70px;
+    column-gap: 25px;
+}
+
+
+.movie-card {
+    position: relative;
 }
 
 .movie-card-image {
     width: 100%;
+    aspect-ratio: 4 / 6;
+    object-fit: cover;
     border-radius: 15px;
 }
 
-.movie-card {
-    max-width: 400px;
-    position: relative;
-    margin-bottom: 70px;
-    justify-self: center;
-}
 
 .movie-card .vote-average {
     position: absolute;
@@ -40,10 +42,8 @@
 }
 
 .hover-container .btn-more-info {
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 10px;
+    display: block; 
+    margin: 20px auto 0 auto; 
 }
 
 /* Hover styles */

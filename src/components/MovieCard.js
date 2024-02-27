@@ -37,6 +37,7 @@ function MovieCard ({movieData = defaultMovieData}) {
             <p className="vote-average">
                 <CircularBar voteAverage={movieData.vote_average.toFixed(1)} />
             </p>
+
             <img src={imagePath} alt={movieData.title} className="movie-card-image" />
 
             <div className="hover-container">
