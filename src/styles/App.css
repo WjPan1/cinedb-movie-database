@@ -86,5 +86,4 @@ body {
 
 .search-result.no-opacity{
     opacity: 1;
-    transition: opacity 0.1s ease-in;
 }
