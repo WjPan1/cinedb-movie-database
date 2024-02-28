@@ -5,12 +5,12 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    /* position: relative; */
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
     z-index: 1000;
+    column-gap: 5px;
 }
 
 header::after {
@@ -215,6 +215,10 @@ header.scrolled::after {
 }
 
 @media (min-width: 52em) {
+
+    header {
+        column-gap: 0px;
+    }
 
     header .hamburger {
         display: none;
