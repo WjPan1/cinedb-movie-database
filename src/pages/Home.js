@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { APP_NAME } from '../globals/globalVariables';
 
 import Banner from "../components/Banner";
-import CategoryRouter from "../router/CategoryRouter";
+import Category from "../components/Category";
 import spinner from "../images/spinner.gif";
 
 import '../styles/Home.css';
@@ -26,7 +26,7 @@ function Home () {
             <img className={`spinner ${isLoading ? 'loading' : 'loaded'}`} src={spinner} alt="Spinner" />
             <div className={`loading ${isLoading ? 'not-finish' : 'finished'}`}>
                 <Banner />
-                <CategoryRouter />
+                <Category />
             </div>
     </main>
     )

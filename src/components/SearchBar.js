@@ -15,7 +15,7 @@ function SearchBar () {
             e.preventDefault();
     
             navigate(`/search/${input}`);
-            setInput("");
+            // setInput("");
 
         }       
     };

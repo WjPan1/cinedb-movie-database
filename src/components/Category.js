@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { imageFolderPath } from "../globals/globalVariables";
 import { getNowPlayingMovies, getPopularMovies, getTopRated, getUpComing } from "../utilities/api";
-import MoviesContainer from "../components/MoviesContainer";
+import MoviesContainer from "./MoviesContainer";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 
 
-function CategoryRouter () {
+function Category () {
 
     const [popularMovies, setPopularMovies] = useState([]);
     const [nowPlaying, setNowPlaying] = useState([]);
@@ -92,4 +92,4 @@ function CategoryRouter () {
     )
 }
 
-export default CategoryRouter;
+export default Category;
