@@ -16,7 +16,7 @@ function Home () {
 
         setTimeout(() => {
             setIsLoading(false);
-        }, 750);
+        }, 500);
 
     }, [])
     

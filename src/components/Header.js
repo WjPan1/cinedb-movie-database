@@ -13,11 +13,13 @@ function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const navbarRef = useRef(null);
 
+
     useEffect(() => {
         // Determine if the screen is at the top
         const handleScroll = () => {
             const scrollPosition = window.scrollY;
-            setIsScrolled(scrollPosition > 0); // Determine if the screen is scrolled
+            // Determine if the screen is scrolled
+            setIsScrolled(scrollPosition > 0); 
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -42,14 +44,14 @@ function Header() {
     }, []);
 
     // Show or Hide dropdown menu after clicked hamburger menu icon
-    function handleClickMenu (event) {
+    function handleDropDownMenu (event) {
         event.stopPropagation(); 
 
         setIsActive(!isActive);
     };
 
     // Hide dropdown menu after clicked links
-    function handleLinkClick (event) {
+    function hideDropdownMenuOnNavLinkClicked (event) {
         event.stopPropagation(); 
 
         setIsActive(false);
@@ -68,16 +70,15 @@ function Header() {
 
                 <nav ref={navbarRef} className= "navbar-container">
                     <div className={`header-menu ${isActive ? "actived" : ""}`} >
-                        <NavLink to="/" onClick={handleLinkClick}>Home</NavLink>
-                        <NavLink to="/about" onClick={handleLinkClick}>About</NavLink>
-                        <NavLink to="/watchlist" onClick={handleLinkClick}>Watchlist</NavLink>
+                        <NavLink to="/" onClick={ hideDropdownMenuOnNavLinkClicked }>Home</NavLink>
+                        <NavLink to="/about" onClick={ hideDropdownMenuOnNavLinkClicked }>About</NavLink>
+                        <NavLink to="/watchlist" onClick={ hideDropdownMenuOnNavLinkClicked }>Watchlist</NavLink>
                     </div>
                 </nav>
             </div>
             
             <MenuIcon className={`hamburger ${isActive ? "actived" : ""}`}
-                      onClick={handleClickMenu}/>
-
+                      onClick={handleDropDownMenu}/>
 
 
         </header>

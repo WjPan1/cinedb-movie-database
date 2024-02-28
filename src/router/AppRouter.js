@@ -11,8 +11,8 @@ import PageSingleMovie from "../pages/PageSingleMovie";
 
 import SearchResult from "../pages/SearchResult";
 
-
 function AppRouter () {
+   
    return (
       <BrowserRouter basename="cinedb">
          <GlobalProvider>
@@ -29,7 +29,6 @@ function AppRouter () {
                </Routes>
 
                <Footer />
-                     
             </div>
          </GlobalProvider>
       </BrowserRouter>

@@ -101,7 +101,7 @@ header.scrolled::after {
     text-decoration: none;
     position: relative;
     margin: 0 20px;
-    opacity: 0.7;
+    opacity: 0.8;
     transition: opacity 0.2s ease;
 }
 
@@ -112,7 +112,6 @@ header.scrolled::after {
 .header-menu a.active {
     opacity: 1;
 }
-
 
 /* Red dot style */
 .header-menu a::before {
@@ -129,14 +128,14 @@ header.scrolled::after {
     transition: opacity 0.2s ease;
 }
 
-/* Show red dot on active */
-.header-menu a.active::before {
+/* Show red dot on hover */
+.header-menu a:hover::before {
     opacity: 1;
 }
 
-/* Show red dot on hover */
-.header-menu a:hover::before {
-    opacity: 0.5;
+/* Show red dot on active */
+.header-menu a.active::before {
+    opacity: 1;
 }
 
 
