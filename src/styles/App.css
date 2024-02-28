@@ -67,14 +67,3 @@ body {
     transform: translateX(-50%);
     font-size: 45px;
 }
-
-
-/* CategoryRouter display */
-.container.opacity {
-    opacity: 0;
-}
-
-.container.no-opacity{
-    transition: opacity 0.5s ease-in-out;
-    opacity: 1;
-}

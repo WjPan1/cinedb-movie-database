@@ -22,72 +22,55 @@ function Category () {
             getNowPlayingMovies(),
             getTopRated(),
             getUpComing()
-        ]).then(([popularData, nowPlayingData, topRatedData, upComingData]) => {
+        ])
+        .then(([popularData, nowPlayingData, topRatedData, upComingData]) => {
             setPopularMovies(popularData.results);
             setNowPlaying(nowPlayingData.results);
             setTopRated(topRatedData.results);
             setUpComing(upComingData.results);
-        }).catch(error => {
-            alert('Fetching movies failed');
+        })
+        .catch((error) => {
+            alert(error);
         });
     }
 
-    const [containerOpacity, setContainerOpacity] = useState(false);
-    const [lastTabIndex, setLastTabIndex] = useState(null);
-
-    const handleCategoryOpacity = (index) => {
-        if ( index !== lastTabIndex ) {
-
-            setContainerOpacity(true);
-            
-            setTimeout(() => {
-                setContainerOpacity(false);
-            }, 10);
-
-            setLastTabIndex(index);
-        }
-    };
-    
 
     return (
         <Tabs className="movie-category-container">
             <TabList className="movie-list">
-                <Tab  index={0} className="movie-link" onClick={ () => handleCategoryOpacity(0) }>
+                <Tab  index={0} className="movie-link" >
                     <img src={`${imageFolderPath}popular.png`} alt="Popular Icon" />
                     <span className="text">Popular</span>
                 </Tab>
-                <Tab  index={1} className="movie-link" onClick={ () => handleCategoryOpacity(1) }>
+                <Tab  index={1} className="movie-link">
                     <img src={`${imageFolderPath}top-rated.png`} alt="Top Rated Icon" /> 
                     <span className="text">Top Rated</span>
                 </Tab>
 
-                <Tab  index={2} className="movie-link" onClick={ () => handleCategoryOpacity(2) }>
+                <Tab  index={2} className="movie-link">
                     <img src={`${imageFolderPath}upcoming.png`} alt="Upcoming Icon" /> 
                     <span className="text">Upcoming</span>
                 </Tab>
 
-                <Tab  index={3} className="movie-link" onClick={ () => handleCategoryOpacity(3) }>
+                <Tab  index={3} className="movie-link" >
                     <img src={`${imageFolderPath}now-playing.png`} alt="Now Playing Icon" /> 
                     <span className="text">Now Playing</span>
                 </Tab>
             </TabList>
 
-            <div className={`container ${containerOpacity ? "opacity" : "no-opacity" }`}>
+            <TabPanel>
+                <MoviesContainer moviesData={popularMovies} />
+            </TabPanel>
+            <TabPanel>
+                <MoviesContainer moviesData={topRated}/>
+            </TabPanel>
+                <TabPanel>
+                <MoviesContainer moviesData={upComing} />
+            </TabPanel>
+            <TabPanel>
+                <MoviesContainer moviesData={nowPlaying} />
+            </TabPanel>
 
-                <TabPanel>
-                    <MoviesContainer moviesData={popularMovies} />
-                </TabPanel>
-                <TabPanel>
-                    <MoviesContainer moviesData={topRated}/>
-                </TabPanel>
-                    <TabPanel>
-                    <MoviesContainer moviesData={upComing} />
-                </TabPanel>
-                <TabPanel>
-                    <MoviesContainer moviesData={nowPlaying} />
-                </TabPanel>
-
-            </div>
         </Tabs>
     )
 }
