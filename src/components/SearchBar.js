@@ -15,12 +15,14 @@ function SearchBar () {
             e.preventDefault();
     
             navigate(`/search/${input}`);
+            setInput("");
         }       
     };
 
     function handleMagnifierClick() {
         if (input.trim() !== "") {
             navigate(`/search/${input}`);
+            setInput("");
         }
     }
 

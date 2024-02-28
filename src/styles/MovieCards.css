@@ -76,22 +76,26 @@
         display: block;
         position: absolute;
         opacity: 0;
-        background-color: rgba(0, 0, 0, 0.826);
+        background-color: rgba(0, 0, 0, 0.866);
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        width: 100.3%;
+        height: 100.2%;
         border-radius: 15px;    
         text-align: center;
         transition: opacity 0.2s ease-in-out;
     }
 
+    .movie-card {
+        transition: transform 0.2s ease-in-out;
+    }
+    
     .movie-card:hover .hover-container {
         opacity: 1;     
     }
 
-    .movie-card {
-        transition: transform 0.2s ease-in-out;
+    .movie-card:hover .movie-card-image {
+        box-shadow: 0 0 17px rgb(96, 77, 77)
     }
 
     .movie-card:hover {
