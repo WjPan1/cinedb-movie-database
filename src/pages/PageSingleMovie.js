@@ -78,6 +78,7 @@ function PageSingleMovie () {
             setIsScrolled ( false );
         }
     };
+    
 
     // Change the arrow svg in slider
     function SliderPrevArrow(props) {
@@ -224,8 +225,7 @@ function PageSingleMovie () {
                             <h2>Top Cast</h2>
 
                             <div className={`cast-scroll ${isScrolled ? 'scroll-left-gradient' : ''}`}>
-                                <div onScroll={handleScroll}
-                                    className="cast-card-container">
+                                <div onScroll={handleScroll} className="cast-card-container">
                                     { castData.map((castItem) => ( castItem.profile_path && 
                                         <div className="cast-card" key={castItem.cast_id}>
                                             <img src={`${IMAGE_URL_BASE}/w185${castItem.profile_path}`} alt={castItem.name} 

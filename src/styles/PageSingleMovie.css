@@ -289,7 +289,7 @@ font-size: 0;
 .cast-card-container {
     display: flex;
     overflow-x: auto;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 .cast-image {
@@ -361,7 +361,7 @@ font-size: 0;
     right: 0;
     top: 0;
     bottom: 10px;
-    width: 100px; /* 调整渐变色宽度 */
+    width: 10%; /* 调整渐变色宽度 */
     background: linear-gradient(to right, transparent, #1d0000); /* 渐变色覆盖层 */
     pointer-events: none; /* 禁用覆盖层的交互 */
     transition: opacity 0.3s ease-in-out; /* 添加过渡效果 */
