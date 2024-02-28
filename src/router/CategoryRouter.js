@@ -1,4 +1,3 @@
-import { NavLink, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { imageFolderPath } from "../globals/globalVariables";
 import { getNowPlayingMovies, getPopularMovies, getTopRated, getUpComing } from "../utilities/api";
@@ -12,8 +11,6 @@ function CategoryRouter () {
     const [nowPlaying, setNowPlaying] = useState([]);
     const [topRated, setTopRated] =useState([]);
     const [upComing, setUpComing] = useState([]);
-    const location = useLocation();
-
 
     useEffect(() => {
         fetchAllMovies();
@@ -36,46 +33,44 @@ function CategoryRouter () {
     }
 
     const [containerOpacity, setContainerOpacity] = useState(false);
+    const [lastTabIndex, setLastTabIndex] = useState(null);
 
-    const handleCategoryOpacity = () => {
-        setContainerOpacity(true);
+    const handleCategoryOpacity = (index) => {
+        if ( index !== lastTabIndex ) {
 
-        setTimeout(() => {
-            setContainerOpacity(false);
-        }, 10);
+            setContainerOpacity(true);
+            
+            setTimeout(() => {
+                setContainerOpacity(false);
+            }, 10);
+
+            setLastTabIndex(index);
+        }
     };
     
 
     return (
         <Tabs className="movie-category-container">
-            {/* <div className="movie-list-container"> */}
-                <TabList className="movie-list">
-                    {/* <li className="movie-link"> */}
-                        <Tab className="movie-link" onClick={ handleCategoryOpacity }>
-                            <img src={`${imageFolderPath}popular.png`} alt="Popular Icon" />
-                            <span className="text">Popular</span>
-                        </Tab>
-                    {/* </li> */}
-                    {/* <li className="movie-link"> */}
-                        <Tab className="movie-link" onClick={ handleCategoryOpacity }>
-                            <img src={`${imageFolderPath}top-rated.png`} alt="Top Rated Icon" /> 
-                            <span className="text">Top Rated</span>
-                        </Tab>
-                    {/* </li> */}
-                    {/* <li className="movie-link"> */}
-                        <Tab className="movie-link" onClick={ handleCategoryOpacity }>
-                            <img src={`${imageFolderPath}upcoming.png`} alt="Upcoming Icon" /> 
-                            <span className="text">Upcoming</span>
-                        </Tab>
-                    {/* </li> */}
-                    {/* <li > */}
-                        <Tab className="movie-link" onClick={ handleCategoryOpacity }>
-                            <img src={`${imageFolderPath}now-playing.png`} alt="Now Playing Icon" /> 
-                            <span className="text">Now Playing</span>
-                        </Tab>
-                    {/* </li> */}
-                </TabList>
-            {/* </div> */}
+            <TabList className="movie-list">
+                <Tab  index={0} className="movie-link" onClick={ () => handleCategoryOpacity(0) }>
+                    <img src={`${imageFolderPath}popular.png`} alt="Popular Icon" />
+                    <span className="text">Popular</span>
+                </Tab>
+                <Tab  index={1} className="movie-link" onClick={ () => handleCategoryOpacity(1) }>
+                    <img src={`${imageFolderPath}top-rated.png`} alt="Top Rated Icon" /> 
+                    <span className="text">Top Rated</span>
+                </Tab>
+
+                <Tab  index={2} className="movie-link" onClick={ () => handleCategoryOpacity(2) }>
+                    <img src={`${imageFolderPath}upcoming.png`} alt="Upcoming Icon" /> 
+                    <span className="text">Upcoming</span>
+                </Tab>
+
+                <Tab  index={3} className="movie-link" onClick={ () => handleCategoryOpacity(3) }>
+                    <img src={`${imageFolderPath}now-playing.png`} alt="Now Playing Icon" /> 
+                    <span className="text">Now Playing</span>
+                </Tab>
+            </TabList>
 
             <div className={`container ${containerOpacity ? "opacity" : "no-opacity" }`}>
 
@@ -92,14 +87,6 @@ function CategoryRouter () {
                     <MoviesContainer moviesData={nowPlaying} />
                 </TabPanel>
 
-            {/* <Routes>
-                <Route index element={<MoviesContainer moviesData={popularMovies} />} />
-                <Route path="/popular" element={<MoviesContainer moviesData={popularMovies} />} />
-                <Route path="/top-rated" element={<MoviesContainer moviesData={topRated}/>} />
-                <Route path="/upcoming" element={<MoviesContainer moviesData={upComing} />} />
-                <Route path="/now-playing" element={<MoviesContainer moviesData={nowPlaying} />} />
-
-            </Routes> */}
             </div>
         </Tabs>
     )
