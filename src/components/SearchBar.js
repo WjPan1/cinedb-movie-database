@@ -15,10 +15,14 @@ function SearchBar () {
             e.preventDefault();
     
             navigate(`/search/${input}`);
-            // setInput("");
-
         }       
     };
+
+    function handleMagnifierClick() {
+        if (input.trim() !== "") {
+            navigate(`/search/${input}`);
+        }
+    }
 
     return (
         <div className="search-container">
@@ -29,16 +33,14 @@ function SearchBar () {
                     className="text-box"
                     placeholder="Search..."
                     value={input}
-                    onChange={(e) => {
-                        setInput(e.target.value);
-                    }}
+                    onChange={(e) => { setInput(e.target.value); }}
                     name="searchInput"
                     id="searchInput"
         
                 />
             </form>
 
-            <Magnifier className="search-icon"/>
+            <Magnifier className="search-icon" onClick={handleMagnifierClick}/>
 
         </div>
     )
