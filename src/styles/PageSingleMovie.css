@@ -232,17 +232,31 @@ font-size: 0;
 .slick-prev svg,
 .slick-next svg {
     fill: rgba(255, 255, 255, 0.706);
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
 }
 
 .slick-prev {
-    left: -5px;
+    left: 1px;
     z-index: 100;
 }
 
 .slick-next {
-    right: 16px;
+    right:1px;
+}
+
+.slick-prev,
+.slick-next {
+    width: 30px;
+    height: 30px;
+}
+
+@media (min-width: 35em) {
+    .slick-prev,
+    .slick-next {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 @media (min-width: 50em) {
