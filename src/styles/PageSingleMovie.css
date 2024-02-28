@@ -43,11 +43,21 @@ main.single-movie-container {
     margin: 30px auto 0;
 }
 
+.movie-title {
+    font-size: 25px;
+}
+
 .watchlist-botton {
     vertical-align: middle;
 }
 
+
+
 @media (min-width: 57em) {
+    .movie-title {
+        font-size: 37px;
+    }
+
     .intro-container {
         position: relative;
         overflow: hidden;
@@ -103,9 +113,6 @@ main.single-movie-container {
 }
 /* --------------------------------- */
 
-.movie-title {
-    font-size: 37px;
-}
 
 .release-date {
     font-size: 0.9rem;

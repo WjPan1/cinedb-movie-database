@@ -22,11 +22,8 @@ const Banner = () => {
         
         // Select the first 5 movies
         const randomNowPlaying = randomizedMovies.slice(0, 5);
-
         setNowPlaying(randomNowPlaying);
-        console.log("data.results"); // 输出随机排序后的电影数组
         
-        console.log(data.results); // 输出随机排序后的电影数组
     }).catch((error) => {
         console.error('Fetching now playing movies failed:', error);
     });
