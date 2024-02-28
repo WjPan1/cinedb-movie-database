@@ -47,10 +47,9 @@ main.single-movie-container {
     font-size: 25px;
 }
 
-.watchlist-botton {
+.watchlist-in-single {
     vertical-align: middle;
 }
-
 
 
 @media (min-width: 57em) {

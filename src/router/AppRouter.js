@@ -14,7 +14,7 @@ import SearchResult from "../pages/SearchResult";
 function AppRouter () {
    
    return (
-      <BrowserRouter basename="cinedb">
+      <BrowserRouter basename="test-cinedb">
          <GlobalProvider>
             <div className="site-container">
 

@@ -9,7 +9,7 @@ function Footer () {
     return (
     <footer>
         <div className="footer-logo">
-            <NavLink to="/">
+            <NavLink to="/" className="logo-container">
                 <img src={`${imageFolderPath}cinedb-logo.png`} alt="Logo" />
                 <span className='website-name'>{APP_NAME}</span>
             </NavLink> 

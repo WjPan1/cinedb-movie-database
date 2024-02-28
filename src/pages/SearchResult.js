@@ -3,6 +3,7 @@ import { searchMovies } from "../utilities/api";
 import { APP_NAME } from '../globals/globalVariables';
 import { useParams } from "react-router-dom";
 import MoviesContainer from "../components/MoviesContainer";
+import spinner from "../images/spinner.gif";
 
 import '../styles/App.css';
 
@@ -10,8 +11,7 @@ import '../styles/App.css';
 function SearchResult () {
     const [ outputResult, setOutputResult ] = useState([]);
     const { query } = useParams();
-    const [containerOpacity, setContainerOpacity] = useState(true);
-
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
       document.title = `${APP_NAME} - Search Result: ${query}`;
@@ -23,29 +23,25 @@ function SearchResult () {
             })
             .catch((error) => {
             alert(error);
-            });
+            })
+            .finally(() => {
+                setIsLoading(false);
+            })
         }
 
-        setContainerOpacity(true);
-
-        setTimeout(() => {
-            setContainerOpacity(false);
-        }, 1000);
-
     }, [query]);
-
 
 
     return (
         <main  className="main-container">
             <h1 className="search-heading">Search Results for: {query}</h1>
 
-            <div className={`search-result ${containerOpacity ? 'opacity' : 'no-opacity'}`}>
-
-            {outputResult.length === 0 ? <p className="no-movie-found"><span className="cry-emoji">😭</span>No movies found.</p> : 
+            { isLoading ?             
+                <img className={`spinner ${isLoading ? 'loading' : 'loaded'}`} src={spinner} alt="Spinner" /> 
+                :
+                outputResult.length === 0 ? <p className="no-movie-found"><span className="cry-emoji">😭</span>No movies found.</p> : 
                 <MoviesContainer  moviesData={outputResult} />
             }
-            </div>
         </main>
     )
 }

@@ -8,6 +8,7 @@ footer {
 /* Logo and title */
 .footer-logo img {
     height: 60px; 
+    width: 60px; 
     vertical-align: middle;
 }
 

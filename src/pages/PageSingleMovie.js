@@ -159,7 +159,7 @@ function PageSingleMovie () {
                                     <CircularBar voteAverage={movieData.vote_average.toFixed(1)} />
                                 </span>
                                 <span className="runtime">{`${convertRuntime(movieData.runtime)}`}</span>
-                                <span className="watchlist-botton"><WatchlistButton movieData={movieData} /></span>
+                                <WatchlistButton movieData={movieData} className="watchlist-in-single" />
                             </div>
 
                             <ul className="genre-list">
