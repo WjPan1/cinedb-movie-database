@@ -10,9 +10,7 @@
 
 .content-container {
     max-width: 85%;
-    margin: auto;
-    margin-top: 60px; 
-    margin-bottom: 60px;   
+    margin: 60px auto;
 }
 
 .content-container img { 
@@ -55,9 +53,7 @@
     }
 
     .content-container {
-        max-width: 90%;
-        margin: auto;
-        margin-top: 60px;      
+        max-width: 90%;    
         display: grid;
         grid-template-columns: 1fr 1fr;  
         grid-template-rows: 1fr;
