@@ -107,6 +107,10 @@
         margin-top: 80px;
     }
 
+    .hover-container .release-date {
+        margin: 0;
+    }
+
     .hover-container .watchlist-in-card {
         position: absolute;
         bottom: 5px;
